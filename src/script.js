@@ -15,7 +15,7 @@ function playRound(playerSelection, computerSelection) {
         },
         {
             choise: "Scissors",
-            beats: "Rock",
+            beats: "Paper",
         },
     ];
     playerSelection = playerSelection.toLocaleLowerCase();
@@ -33,7 +33,7 @@ function playRound(playerSelection, computerSelection) {
     }
     return "It's Draw";
 };
-let playerSelection = "rock";
+let playerSelection = "Paper";
 let computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 
