@@ -11,5 +11,22 @@
     --header-color: #111720;
     --primary-color: #222831;
     --color-white: #dddd;
+    --color-orange: #fac650;
 }
 
+header {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-color);
+    height: 20vh;
+    font-family: 'Press Start 2P', system-ui;
+    color: var(--color-orange);
+}
+
+@media screen and (max-width: 760px) {
+    header{
+        font-size: 7px;
+    }
+}
