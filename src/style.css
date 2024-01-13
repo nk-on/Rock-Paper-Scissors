@@ -6,13 +6,16 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 :root {
     --header-color: #111720;
     --primary-color: #222831;
     --color-white: #dddd;
     --color-orange: #fac650;
-    --btn-color:#393e46;
+    --btn-color: #393e46;
 }
 
 header {
@@ -25,14 +28,41 @@ header {
     font-family: 'Press Start 2P', system-ui;
     color: var(--color-orange);
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 80vh;
     background-color: var(--primary-color);
 }
-.options button{
+.information{
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    color:var(--color-white);
+}
+.game-info{
+    display: flex;
+    gap:10px;
+}
+.Choosen-option-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Choosen-option{
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 32px;
+}
+.player-info{
+    display: flex;
+    gap:5px;
+}
+.options button {
     cursor: pointer;
     width: 10vw;
     height: 200px;
@@ -41,12 +71,17 @@ main{
     border: none;
     border-radius: 10px;
 }
+
 @media screen and (max-width: 760px) {
-    header{
+    header {
         font-size: 7px;
     }
-    .options button{
+
+    .options button {
         width: 30vw;
         height: 100px;
+    }
+    .Choosen-option{
+        font-size: 16px;
     }
 }
