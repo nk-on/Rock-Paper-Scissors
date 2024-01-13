@@ -33,6 +33,7 @@ main{
     background-color: var(--primary-color);
 }
 .options button{
+    cursor: pointer;
     width: 10vw;
     height: 200px;
     font-size: 5vw;
