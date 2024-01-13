@@ -1,3 +1,6 @@
+const optionButtons = document.querySelectorAll(".option-button");
+const choosenOption = document.querySelectorAll(".Choosen-option");
+const playerScore = document.querySelectorAll(".score");
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
     let randomIdx = Math.floor(Math.random() * options.length);
@@ -6,14 +9,17 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     let pairs = [
         {
+            emoji:"✊",
             choise: "Rock",
             beats: "Scissors",
         },
         {
+            emoji:"✋",
             choise: "Paper",
             beats: "Rock",
         },
         {
+            emoji:'✌️',
             choise: "Scissors",
             beats: "Paper",
         },
@@ -37,7 +43,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     while (playerScore < 5 && computerScore < 5) {
-        let playerChoice = prompt("Enter you choice");
+        // let playerChoice = prompt("Enter you choice");
         let computerChoice = getComputerChoice();
         const result = playRound(playerChoice, computerChoice);
         console.log(playerChoice, computerChoice)
