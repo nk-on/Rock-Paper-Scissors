@@ -34,8 +34,7 @@ function playRound() {
             beats: "Paper",
         },
     ];
-    let result;
-    const playerChoice = this.getAttribute("data-option");;
+    const playerChoice = this.getAttribute("data-option");
     const computerChoice = getComputerChoice();
     /*Block of code which is responsible for rendering emoji 
       corresponding to the choosen option
@@ -50,24 +49,25 @@ function playRound() {
         };
     });
     // Determine the winner based on the choices
-    pairs.forEach((pair) => {
-        let choice = pair.choice;
-        let beats = pair.beats;
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i];
+        const choice = pair.choice;
+        const beats = pair.beats;
         if (choice === playerChoice && beats === computerChoice) {
-            result = "Player Won";
+            gameFunction("Player won");
+            return;
         } else if (choice === computerChoice && beats === playerChoice) {
-            result = "Computer won";
-        } else {
-            result = "It's Draw";
+            gameFunction("Computer won");
+            return;
         }
-    });
-    console.log(result);
-    gameFunction(result);
+    }
+    gameFunction("it's draw");
 };
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    return (result)=>{
+    return (result) => {
+        //block of code which is responsible for increasing and displaying both player's scores
         if (result === "Player won") {
             playerScore++;
             playerScoreContainer.textContent = playerScore;
@@ -75,8 +75,6 @@ function game() {
             computerScore++;
             computerScoreContainer.textContent = computerScore
         }
-        playerScoreContainer.textContent = playerScore;
-        
         if (playerScore > computerScore) {
             return "Player Won"
         }
