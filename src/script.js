@@ -1,11 +1,8 @@
 const optionButtons = document.querySelectorAll(".option-button");
 const choosenOption = document.querySelectorAll(".Choosen-option");
-const playerScore = document.querySelectorAll(".score");
-optionButtons.forEach(
-    (button) => {
-        button.addEventListener("click", playRound)
-    }
-);
+const playerScoreContainer = document.querySelector(".Player-score");
+const computerScoreContainer = document.querySelector(".Computer-score");
+const gameFunction = game();
 /* Function to get the computer's choice in a Rock, Paper, Scissors game.
   returns The randomly selected choice (Rock, Paper, or Scissors).
 */
@@ -37,52 +34,56 @@ function playRound() {
             beats: "Paper",
         },
     ];
-    const playerSelection = this.dataset.option;
-    const computerSelection = getComputerChoice();
+    let result;
+    const playerChoice = this.getAttribute("data-option");;
+    const computerChoice = getComputerChoice();
     /*Block of code which is responsible for rendering emoji 
       corresponding to the choosen option
     */
     pairs.forEach((pair) => {
-        let choise = pair.choice;
-        if (choise === playerSelection) {
+        let choice = pair.choice;
+        if (choice === playerChoice) {
             choosenOption[0].textContent = pair.emoji;
         };
-        if (choise === computerSelection) {
+        if (choice === computerChoice) {
             choosenOption[1].textContent = pair.emoji;
         };
     });
     // Determine the winner based on the choices
-    for (let i = 0; i < pairs.length; i++) {
-        let pair = pairs[i];
-        let choise = pair.choice;
+    pairs.forEach((pair) => {
+        let choice = pair.choice;
         let beats = pair.beats;
-        if (choise === playerSelection && beats === computerSelection) {
-            return "Player won"
+        if (choice === playerChoice && beats === computerChoice) {
+            result = "Player Won";
+        } else if (choice === computerChoice && beats === playerChoice) {
+            result = "Computer won";
+        } else {
+            result = "It's Draw";
         }
-        if (choise === computerSelection && beats === playerSelection) {
-            return "Computer won"
-        };
-    }
-    return "It's Draw";
+    });
+    console.log(result);
+    gameFunction(result);
 };
-// function game() {
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     while (playerScore < 5 && computerScore < 5) {
-//         // let playerChoice = prompt("Enter you choice");
-//         let computerChoice = getComputerChoice();
-//         const result = playRound(playerChoice, computerChoice);
-//         console.log(playerChoice, computerChoice)
-//         if (result === "Player won") {
-//             playerScore++;
-//         } else if (result === "Computer won") {
-//             computerScore++;
-//         }
-//         console.log(playerScore, computerScore)
-//     };
-//     if (playerScore > computerScore) {
-//         return "Player Won"
-//     }
-//     return "Computer won"
-// };
-// console.log(game());
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    return (result)=>{
+        if (result === "Player won") {
+            playerScore++;
+        } else if (result === "Computer won") {
+            computerScore++;
+        }
+        playerScoreContainer.textContent = playerScore;
+        computerScoreContainer.textContent = computerScore
+        if (playerScore > computerScore) {
+            return "Player Won"
+        }
+        return "Computer won";
+    };
+}
+
+optionButtons.forEach(
+    (button) => {
+        button.addEventListener("click", playRound);
+    }
+);
