@@ -75,10 +75,13 @@ function game() {
             computerScore++;
             computerScoreContainer.textContent = computerScore
         }
-        if (playerScore > computerScore) {
-            return "Player Won"
-        }
-        return "Computer won";
+        //block of code which is responsible for declaring winner
+        if(playerScore >= 5 || computerScore >= 5){
+            if (playerScore > computerScore) {
+                return "Player Won"
+            }
+            return "Computer won";
+        };
     };
 }
 
