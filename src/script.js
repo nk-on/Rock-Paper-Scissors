@@ -70,11 +70,13 @@ function game() {
     return (result)=>{
         if (result === "Player won") {
             playerScore++;
+            playerScoreContainer.textContent = playerScore;
         } else if (result === "Computer won") {
             computerScore++;
+            computerScoreContainer.textContent = computerScore
         }
         playerScoreContainer.textContent = playerScore;
-        computerScoreContainer.textContent = computerScore
+        
         if (playerScore > computerScore) {
             return "Player Won"
         }
