@@ -73,27 +73,34 @@ function game() {
         //block of code which is responsible for increasing and displaying both player's scores
         if (result === "Player won") {
             playerScore++;
-            playerScoreContainer.textContent = playerScore;
         } else if (result === "Computer won") {
             computerScore++;
-            computerScoreContainer.textContent = computerScore
         }
         //block of code which is responsible for declaring winner by comparing both player's scores
         if (playerScore >= 5 || computerScore >= 5) {
+            playerScore = computerScore = 0;
             let winner = "Computer"
             if (playerScore > computerScore) {
                 winner = "Player"
             }
             displayPopUp(winner);
         };
+        playerScoreContainer.textContent = playerScore;
+        computerScoreContainer.textContent = computerScore;
     };
 };
 function displayPopUp(winner){
     winnerContainer.textContent = `${winner} won !`
     popUp.style.display = "block";
-}
+};
+function playAgain(){
+    popUp.style.display = "none";
+    choosenOption[0].textContent = "?";
+    choosenOption[1].textContent = "?";
+};
 optionButtons.forEach(
     (button) => {
         button.addEventListener("click", playRound);
     }
 );
+playAgainButton.addEventListener("click",playAgain);
