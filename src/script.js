@@ -2,6 +2,9 @@ const optionButtons = document.querySelectorAll(".option-button");
 const choosenOption = document.querySelectorAll(".Choosen-option");
 const playerScoreContainer = document.querySelector(".Player-score");
 const computerScoreContainer = document.querySelector(".Computer-score");
+const popUp = document.querySelector(".pop-up ");
+const winnerContainer = document.querySelector(".winner");
+const playAgainButton = document.querySelector(".play-again-button");
 const gameFunction = game();
 /* Function to get the computer's choice in a Rock, Paper, Scissors game.
   returns The randomly selected choice (Rock, Paper, or Scissors).
@@ -75,16 +78,20 @@ function game() {
             computerScore++;
             computerScoreContainer.textContent = computerScore
         }
-        //block of code which is responsible for declaring winner
-        if(playerScore >= 5 || computerScore >= 5){
+        //block of code which is responsible for declaring winner by comparing both player's scores
+        if (playerScore >= 5 || computerScore >= 5) {
+            let winner = "Computer"
             if (playerScore > computerScore) {
-                return "Player Won"
+                winner = "Player"
             }
-            return "Computer won";
+            displayPopUp(winner);
         };
     };
+};
+function displayPopUp(winner){
+    winnerContainer.textContent = `${winner} won !`
+    popUp.style.display = "block";
 }
-
 optionButtons.forEach(
     (button) => {
         button.addEventListener("click", playRound);
