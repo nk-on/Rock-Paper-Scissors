@@ -78,11 +78,11 @@ function game() {
         }
         //block of code which is responsible for declaring winner by comparing both player's scores
         if (playerScore >= 5 || computerScore >= 5) {
-            playerScore = computerScore = 0;
             let winner = "Computer"
             if (playerScore > computerScore) {
                 winner = "Player"
             }
+            playerScore = computerScore = 0;
             displayPopUp(winner);
         };
         playerScoreContainer.textContent = playerScore;
