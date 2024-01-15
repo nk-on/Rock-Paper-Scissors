@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors </title>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/script.js" defer></script>
 </head>
+
 <body>
-    <script src="src/script.js"></script>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <section class = "pop-up">
+            <div class="pop-up-content">
+                <h3 class = "winner"></h3>
+                <button class = "play-again-button">Play again</button>
+            </div>
+        </section>
+        <section class="information">
+            <h1>Choose your weapon</h1>
+            <h3> First to score 5 points wins the game </h3>
+            <div class="game-info">
+                <div class="Choosen-option-container"><span class="Choosen-option">?</span>
+                    <div class="player-info">
+                        <p>Player</p>
+                        <span class="Player-score">0</span>
+                    </div>
+                </div>
+                <div class="Choosen-option-container"><span class="Choosen-option">?</span>
+                    <div class="player-info">
+                        <p>Computer</p>
+                        <span class="Computer-score">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="options">
+            <button class="option-button" data-option="Rock">✊</button>
+            <button class="option-button" data-option="Paper">✋</button>
+            <button class="option-button" data-option="Scissors">✌️</button>
+        </section>
+    </main>
 </body>
+
 </html>
