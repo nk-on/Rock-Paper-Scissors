@@ -89,12 +89,12 @@ function game() {
         computerScoreContainer.textContent = computerScore;
     };
 };
-function displayPopUp(winner){
+function displayPopUp(winner) {
+    popUp.showModal();
     winnerContainer.textContent = `${winner} won !`
-    popUp.style.display = "block";
 };
-function playAgain(){
-    popUp.style.display = "none";
+function playAgain() {
+    popUp.close();
     choosenOption[0].textContent = "?";
     choosenOption[1].textContent = "?";
 };
@@ -103,4 +103,4 @@ optionButtons.forEach(
         button.addEventListener("click", playRound);
     }
 );
-playAgainButton.addEventListener("click",playAgain);
+playAgainButton.addEventListener("click", playAgain);
