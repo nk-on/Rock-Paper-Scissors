@@ -20,7 +20,7 @@ This Rock Paper Scissors game is an interactive web application where a human pl
 4. **Track Points:** The scores will update based on the outcome of each round.
 5. **Declare Winner:** After a predetermined number of rounds, the player with the highest score will be declared the winner.
 
-## Demo
+## Screenshot
 ![Rock Paper Scissors Demo](assets/Screenshot%202024-10-08%20at%2017.33.52.png)
 
 ## Installation
